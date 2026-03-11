@@ -34,5 +34,5 @@ public:
 	UStaticMeshComponent *PlayerMeshComponent;
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
-	UStaticMeshComponent *EnemyComponent;
+	UStaticMeshComponent *EnemyMeshComponent;
 };

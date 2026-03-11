@@ -9,6 +9,15 @@ ABaseTank::ABaseTank()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	BaseCollisionComponent = CreateDefaultSubobject<UCapsuleComponent>(TEXT("BaseCollisionComponent"));
+	SetRootComponent(BaseCollisionComponent);
+
+	PlayerMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("PlayerMeshComponent"));
+	PlayerMeshComponent->SetupAttachment(BaseCollisionComponent);
+
+	EnemyMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("EnemyMeshComponent"));
+	EnemyMeshComponent->SetupAttachment(PlayerMeshComponent);
+
 }
 
 // Called when the game starts or when spawned
