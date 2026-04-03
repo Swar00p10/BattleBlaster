@@ -20,5 +20,13 @@ ABaseTank::ABaseTank()
 
 }
 
+void ABaseTank::RotateTurret(FVector LookAtTarget)
+{
+	FVector ToTarget = LookAtTarget - TankTurretMesh->GetComponentLocation();
+	FRotator LookAtRotation = FRotator(0.0f, ToTarget.Rotation().Yaw, 0.0f);
+	
+	TankTurretMesh->SetWorldRotation(FMath::RInterpConstantTo(TankTurretMesh->GetComponentRotation(), LookAtRotation, GetWorld()->GetDeltaSeconds(), 500.0f));
+}
+
 
 
