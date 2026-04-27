@@ -28,7 +28,7 @@ void APlayerTank::BeginPlay()
 			UEnhancedInputLocalPlayerSubsystem* Subsystem;
 			Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(LocalPlayer);
 			if (Subsystem)
-			{
+			{	
 				Subsystem->AddMappingContext(DefaultMappingContext, 0);
 			}
 		}
@@ -61,6 +61,7 @@ void APlayerTank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 	{
 		EIC->BindAction(MoveAction, ETriggerEvent::Triggered, this, &APlayerTank::Move);
 		EIC->BindAction(TurnAction, ETriggerEvent::Triggered, this, &APlayerTank::Turn);
+		EIC->BindAction(FireAction, ETriggerEvent::Triggered, this, &APlayerTank::Fire);	
 	}
 }
 
@@ -79,3 +80,5 @@ void APlayerTank::Turn(const FInputActionValue& Value)
 	AddActorLocalRotation(DeltaRotation, true);
 	UE_LOG(LogTemp, Display, TEXT("Turn function called value is %f"), TurnValue);
 }
+
+

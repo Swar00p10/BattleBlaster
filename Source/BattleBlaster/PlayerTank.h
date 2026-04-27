@@ -40,6 +40,7 @@ public:
 	// Function to handle input for moving forward and backward.
 	void Move(const FInputActionValue& Value);
 	void Turn(const FInputActionValue& Value);
+	/*virtual void Fire() override;*/
 
 	UPROPERTY(EditAnywhere, Category = "Input")
 	class UInputMappingContext* DefaultMappingContext;
@@ -50,8 +51,11 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputAction* TurnAction;
 
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* FireAction;
+
 	UPROPERTY(EditAnywhere, Category = "Movement")
-	float MoveSpeed = 300.0f;
+	float MoveSpeed = 500.0f;
 
 	UPROPERTY(EditAnywhere, Category = "Movement")
 	float TurnSpeed = 100.0f;

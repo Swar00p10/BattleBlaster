@@ -22,6 +22,7 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	void CheckFire();
 
 public:
 	// Called every frame
@@ -30,4 +31,6 @@ public:
 	UPROPERTY(EditAnywhere)
 	APlayerTank* PlayerTank;
 
+	UPROPERTY(EditAnywhere)
+	int DetectionRange = 1000.0f;
 };

@@ -5,6 +5,9 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
 #include "Components/CapsuleComponent.h"
+#include "Projectile.h"
+#include "HealthComponent.h"
+
 #include "BaseTank.generated.h"
 
 UCLASS()
@@ -27,5 +30,17 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UStaticMeshComponent *TankTurretMesh;
 
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+	USceneComponent* ProjectileSpawnPoint;
+
+	UPROPERTY(EditAnywhere, Category = "Projectile")
+	TSubclassOf<AProjectile> ProjectileClass;
+
+	UPROPERTY(EditAnywhere, Category = "Components")
+	UHealthComponent* HealthComponent;
+
 	void RotateTurret(FVector LookAtTarget);
+
+
+	virtual void Fire();
 };
